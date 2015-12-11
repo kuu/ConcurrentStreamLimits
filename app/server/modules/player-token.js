@@ -1,7 +1,7 @@
 var sha256 = require('tiny-sha256');
 
-function serialize(params, delimiter) {
-  return Object.keys(params).sort(function (a, b) {
+function serialize(params, options, delimiter) {
+  var list = Object.keys(params).sort(function (a, b) {
     if (a[0] < b[0]) {
       return -1;
     } else if (a[0] === b[0]) {
@@ -9,8 +9,10 @@ function serialize(params, delimiter) {
     } else {
       return 1;
     }
-  }).map(function (key) {
-    return key + '=' + params[key];
+  }).concat(Object.keys(options));
+
+  return list.map(function (key) {
+    return key + '=' + (params[key] !== void 0 ? params[key] : options[key]);
   }).join(delimiter);
 }
 
@@ -25,12 +27,14 @@ exports.get = function(embedCode, accountId) {
       expires = Date.now() + 86400000,
       params = {
         api_key: apiKey,
-        expires: expires,
+        expires: expires
+      },
+      options = {
         account_id: accountId
       },
       method = 'GET', hashStr, signature, token;
 
-  hashStr = sha256(secret + method + path + serialize(params, ''));
+  hashStr = sha256(secret + method + path + serialize(params, options, ''));
   signature = new Buffer(hashStr, 'hex').toString('base64');
   // Remove any trailing '=' sign
   signature = signature.replace(/=+$/, '');
@@ -38,7 +42,7 @@ exports.get = function(embedCode, accountId) {
   token = [
     'http://player.ooyala.com' + path,
     [
-      serialize(params, '&'),
+      serialize(params, options, '&'),
       ['signature', encodeURIComponent(signature)].join('=')
     ].join('&').replace(/^&+/, '')
   ].join('?');
