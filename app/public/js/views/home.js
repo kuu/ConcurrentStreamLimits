@@ -46,4 +46,16 @@ $(document).ready(function(){
 	$('.modal-confirm .submit').html('Delete');
 	$('.modal-confirm .submit').addClass('btn-danger');
 
+        /*
+        OO.ready(function() {
+          OO.Player.create('ooyalaplayer', 'txeXNxeDrumpV8ugahvN-aEATj_YGBiI');
+        });
+        */
+
+        OO.ready(function() {
+          OO.Player.create('ooyalaplayer', embedCode, {
+            embedToken : playerToken
+          });
+        });
+
 })

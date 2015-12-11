@@ -2,6 +2,7 @@
 var CT = require('./modules/country-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
+var PT = require('./modules/player-token');
 
 module.exports = function(app) {
 
@@ -46,9 +47,12 @@ module.exports = function(app) {
 	// if user is not logged-in redirect back to login page //
 			res.redirect('/');
 		}	else{
+                        var embedCode = 'txeXNxeDrumpV8ugahvN-aEATj_YGBiI';
 			res.render('home', {
-				title : 'Control Panel',
+				title : 'Player',
 				countries : CT,
+				token: PT.get(embedCode, req.session.user._id),
+				embedCode: embedCode,
 				udata : req.session.user
 			});
 		}

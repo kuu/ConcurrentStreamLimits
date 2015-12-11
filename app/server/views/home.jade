@@ -16,15 +16,17 @@ block content
 			a(href="https://github.com/braitsch/node-login") View On Github
 
 
-	include account
-	include modals/alert
-	include modals/confirm
+	include player
 
 block scripts
+	script(src='//player.ooyala.com/v3/7267438d470c471eb75a165a8b670617')
 	script(src='/vendor/jquery.min.js')
 	script(src='/vendor/jquery.form.js')
 	script(src='/vendor/bootstrap-modal.js')
 	script(src='/vendor/bootstrap-transition.js')
+	script(type='text/javascript').
+		var playerToken = '!{token}';
+		var embedCode = '!{embedCode}';  
 	script(src='/js/views/home.js')
 	script(src='/js/controllers/homeController.js')
 	script(src='/js/form-validators/accountValidator.js')
