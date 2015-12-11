@@ -2,11 +2,13 @@
 
 ## Prerequisets
 
-[Node](https://nodejs.org) and [MongoDB](https://www.mongodb.org)
+Install [Node](https://nodejs.org) and [MongoDB](https://www.mongodb.org).
 
 ## Install
 
 ```
+$ git clone git@github.com:kuu/ConcurrentStreamLimits.git
+$ cd ConcurrentStreamLimits
 $ npm install
 ```
 
