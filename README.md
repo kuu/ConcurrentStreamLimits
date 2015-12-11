@@ -16,7 +16,7 @@ $ npm install
 $ npm run db
 ```
 
-In separate console:
+In a separate console:
 ```
 $ npm start
 ```

@@ -7,7 +7,7 @@
 		"type": "git",
 		"url": "git@github.com:kuu/ConcurrentStreamLimits.git"
 	},
-        "packages": {
+        "scripts": {
                 "db": "mongod --dbpath ./data/",
                 "start": "node app"
         },
