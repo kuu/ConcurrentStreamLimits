@@ -9,7 +9,7 @@
   },
   "scripts": {
     "db": "mongod --dbpath ./data/",
-    "start": "node app"
+    "start": "forever start app.js"
   },
   "dependencies": {
     "body-parser": "1.14.1",
@@ -19,6 +19,7 @@
     "errorhandler": "1.4.2",
     "express": "4.13.3",
     "express-session": "1.11.3",
+    "forever": "^0.15.1",
     "jade": "1.11.0",
     "moment": "2.10.3",
     "mongodb": "2.0.45",
