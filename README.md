@@ -28,5 +28,6 @@ In a separate console:
 ```
 $ npm start
 ```
+Logs go to ./server.log (stdout) and ./error.log (stderr)
 
 Go to http://localhost:3000 with your browser.
