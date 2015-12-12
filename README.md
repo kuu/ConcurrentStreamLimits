@@ -19,7 +19,7 @@ $ mkdir data
 $ npm run db
 ```
 
-If the default port (27017) is used, add params like:
+If the default port (27017) is used, use another one by specifying it like:
 ```
 $ npm run db -- --port 27018
 ```
